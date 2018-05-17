@@ -1,20 +1,154 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- Uses a header that contracts as the page scrolls down. -->
+<style>
 
+.fooof-demo-card, .fooof-definition-card {
+  width:100%;
+}
+
+.fooof-demo-card > .mdl-card__media {
+  height: 435px;
+  background: url('https://github.com/voytekresearch/fooof/raw/master/img/FOOOF_Report.png') bottom / 102%;
+  background-repeat: no-repeat;
+}
+
+.fooof-definition-card > .mdl-card__title {
+  color: #fff;
+  background:
+    url('../assets/fooof-post-it.jpg') center / 150%;
+  height: 200px;
+}
+
+</style>
+
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">WTFooof</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">These</a>
+        <a class="mdl-navigation__link" href="">don't</a>
+        <a class="mdl-navigation__link" href="">go</a>
+        <a class="mdl-navigation__link" href="">anywhere</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">These</a>
+      <a class="mdl-navigation__link" href="">don't</a>
+      <a class="mdl-navigation__link" href="">go</a>
+      <a class="mdl-navigation__link" href="">anywhere</a>
+    </nav>
+  </div>
+
+  <main class="mdl-layout__content">
+    <div class="page-content">
+
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col">
+
+          <h1>Introduction</h1>
+
+          <p>FOOOF is a fast, efficient, physiologically-informed model to parameterize neural power spectra, characterizing both the aperiodic 'background' component, and periodic components as overlying peaks, reflecting putative oscillations.</p>
+
+          <p>The model conceives of the neural power spectrum as consisting of two distinct functional processes:</p>
+
+          <ul>
+            <li>An aperiodic component, typically reflecting 1/f like characteristics, modeled with an exponential fit, with:</li>
+            <li>Band-limited peaks rising above this background, reflecting putative oscillations, and modeled as Gaussians.</li>
+          </ul>
+
+          <p>
+            With regards to examing peaks in the frequency domain, as putative oscillations, the benefit of the FOOOF approach is that these peaks are characterized in terms of their specific center frequency, amplitude and bandwidth without requiring predefining specific bands of interest. In particular, it separates these peaks from a dynamic, and independently interesting aperiodic background. This conception of the aperiodic background, as potentially functional (and therefore worth carefully modeling) is based on work from our lab suggesting that the slope of this approximately 1/f distributed aperiodic background may reflect physiological parameters, particularly excitation/inhibition balance (<a href="http://voyteklab.com/wp-content/uploads/Gao-NeuroImage2017.pdf" rel="nofollow">Gao, Peterson, Voytek, <em>NeuroImage</em> 2017</a>; <a href="http://voyteklab.com/wp-content/uploads/Voytek-BiolPsychiatry2015.pdf" rel="nofollow">Voytek &amp; Knight, <em>Biol Psychiatry</em> 2015</a>). This aperiodic component changes with task (<a href="http://www.weizmann.ac.il/neurobiology/labs/malach/sites/neurobiology.labs.malach/files/Podvalny%20et%20al_2015_JNeurophysiol.pdf" rel="nofollow">Podvalny <em>et al.</em>, <em>J Neurophysiol</em> 2015</a>), with aging (<a href="http://voyteklab.com/wp-content/uploads/Voytek-JNeurosci2015.pdf" rel="nofollow">Voytek <em>et al.</em>, <em>J Neurosci</em> 2015</a>), and is thus interesting and important to measure, both in of itself, and to address potential confounds of the aperiodic components on the measurement of band-limited periodic components.
+          </p>
+
+        </div>
+        <div class="mdl-cell mdl-cell--8-col">
+          <div class="mdl-grid">
+            <div class="fooof-definition-card mdl-cell mdl-cell--8-col mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title mdl-card--expand">
+                <h1 class="mdl-card__title-text">FOOOF</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                Fitting Oscillations and One Over F
+              </div>
+            </div>
+            <div class="fooof-demo-card mdl-cell mdl-cell--8-col mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__media"></div>
+              <div class="mdl-card__supporting-text">
+                There's gonna be some neat-o charts
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="mdl-mega-footer">
+    <div class="mdl-mega-footer__middle-section">
+
+      <div class="mdl-mega-footer__drop-down-section">
+        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer__heading">Features</h1>
+        <ul class="mdl-mega-footer__link-list">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="#">Updates</a></li>
+        </ul>
+      </div>
+
+      <div class="mdl-mega-footer__drop-down-section">
+        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer__heading">Details</h1>
+        <ul class="mdl-mega-footer__link-list">
+          <li><a href="#">Specs</a></li>
+          <li><a href="#">Tools</a></li>
+          <li><a href="#">Resources</a></li>
+        </ul>
+      </div>
+
+      <div class="mdl-mega-footer__drop-down-section">
+        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer__heading">Technology</h1>
+        <ul class="mdl-mega-footer__link-list">
+          <li><a href="#">How it works</a></li>
+          <li><a href="#">Patterns</a></li>
+          <li><a href="#">Usage</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Contracts</a></li>
+        </ul>
+      </div>
+
+      <div class="mdl-mega-footer__drop-down-section">
+        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer__heading">FAQ</h1>
+        <ul class="mdl-mega-footer__link-list">
+          <li><a href="#">Questions</a></li>
+          <li><a href="#">Answers</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="mdl-mega-footer__bottom-section">
+      <div class="mdl-logo">Title</div>
+      <ul class="mdl-mega-footer__link-list">
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Privacy & Terms</a></li>
+      </ul>
+    </div>
+
+  </footer>
+</div>
