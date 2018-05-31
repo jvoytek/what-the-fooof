@@ -1,0 +1,16 @@
+.fooof-demo-card, .fooof-definition-card {
+  width:100%;
+}
+
+.fooof-demo-card > .mdl-card__media {
+  height: 435px;
+  background: url('https://github.com/voytekresearch/fooof/raw/master/img/FOOOF_Report.png') bottom / 102%;
+  background-repeat: no-repeat;
+}
+
+.fooof-definition-card > .mdl-card__title {
+  color: #fff;
+  background:
+    url('../../../assets/fooof-post-it.jpg') center / 150%;
+  height: 200px;
+}
