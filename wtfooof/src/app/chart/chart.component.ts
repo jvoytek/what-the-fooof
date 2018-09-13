@@ -22,6 +22,8 @@ export class ChartComponent implements OnInit, AfterContentInit {
   chartWidth;
   fontSize;
 
+  svgId = 'generic-chart';
+
   constructor(private constants: GlobalConstantsService, public chartService: ChartService, private el: ElementRef) { }
 
   // TODO Not sure if this is the "right" way to specify the type of this var (but ok for now)
@@ -53,7 +55,8 @@ export class ChartComponent implements OnInit, AfterContentInit {
   }
 
   private selectSvg() {
-    this.svg = d3.select('svg');
+    this.svg = d3.select('svg#' + this.svgId);
+    console.log(this.svg);
   }
 
   private getChartWidthAndHeight() {

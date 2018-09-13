@@ -8,7 +8,7 @@ export class ChartService {
 
   constructor() { }
 
-  getDataFromJsonFiles(files:Array<string>, callback:Function) {
+  getDataFromJsonFiles(files: Array<string>, callback: Function) {
 
     const jsonFiles = files.map(function(file) {
       return d3.json(file);
@@ -23,7 +23,7 @@ export class ChartService {
       });
   }
 
-  mapArraysAndRemoveOutOfRange(array: Array<number>, otherArray: Array<number>, range:Array<number>) {
+  mapArraysAndRemoveOutOfRange(array: Array<number>, otherArray: Array<number>, range: Array<number>) {
 
     function mapWithOtherArray(f, index) {
       return {'freq': f, 'power': otherArray[index]};
@@ -40,7 +40,7 @@ export class ChartService {
   }
 
 
-  public getLinearScale(domain:Array<number>, range:Array<number>): d3.AxisScale<d3.AxisDomain> {
+  public getLinearScale(domain: Array<number>, range: Array<number>): d3.AxisScale<d3.AxisDomain> {
     return d3.scaleLinear().domain(domain).range(range);
   }
 

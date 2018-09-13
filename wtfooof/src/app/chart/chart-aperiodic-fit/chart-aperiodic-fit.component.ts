@@ -37,7 +37,7 @@ export class ChartAperiodicFitComponent extends ChartComponent implements AfterV
     this.g.append('path')
      .datum(originalSpectrum)
      .attr('fill', 'none')
-     .attr('stroke', 'steelblue')
+     .attr('stroke', 'black')
      .attr('stroke-linejoin', 'round')
      .attr('stroke-linecap', 'round')
      .attr('stroke-width', this.strokeWidth)
@@ -73,8 +73,10 @@ export class ChartAperiodicFitComponent extends ChartComponent implements AfterV
 
   private plot(freqsArray: Array<number>, powerArray: Array<number>, initialBackgroundFitFreqsArray: Array<number>) {
 
-    const originalSpectrumData = this.chartService.mapArraysAndRemoveOutOfRange(freqsArray, powerArray, this.freq_range),
-      initialBackgroundFitData = this.chartService.mapArraysAndRemoveOutOfRange(freqsArray, initialBackgroundFitFreqsArray, this.freq_range),
+    const originalSpectrumData = this.chartService
+                                  .mapArraysAndRemoveOutOfRange(freqsArray, powerArray, this.freq_range),
+      initialBackgroundFitData = this.chartService
+                                  .mapArraysAndRemoveOutOfRange(freqsArray, initialBackgroundFitFreqsArray, this.freq_range),
 
       y_scale = this.chartService.getLinearScale(d3.extent(powerArray), [this.chartHeight, 0]),
       x_scale = this.chartService.getLinearScale(this.freq_range, [0, this.chartWidth]),

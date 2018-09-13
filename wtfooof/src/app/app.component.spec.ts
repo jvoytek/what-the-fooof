@@ -27,10 +27,22 @@ class MockFooterComponent {}
 class MockCopyIntroComponent {}
 
 @Component({
+  selector: 'app-copy-aperiodic-fit',
+  template: ''
+})
+class MockCopyAperiodicFitComponent {}
+
+@Component({
   selector: 'app-chart-aperiodic-fit',
   template: ''
 })
 class MockChartAperiodicFitComponent {}
+
+@Component({
+  selector: 'app-chart-intro',
+  template: ''
+})
+class MockChartIntroComponent {}
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -41,7 +53,9 @@ describe('AppComponent', () => {
         MockNavigationComponent,
         MockFooterComponent,
         MockCopyIntroComponent,
-        MockChartAperiodicFitComponent
+        MockChartAperiodicFitComponent,
+        MockChartIntroComponent,
+        MockCopyAperiodicFitComponent
       ],
     }).compileComponents();
   }));

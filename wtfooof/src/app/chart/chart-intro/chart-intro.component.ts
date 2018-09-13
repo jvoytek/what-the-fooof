@@ -7,5 +7,5 @@ import { ChartComponent } from '../chart.component';
   styleUrls: ['./chart-intro.component.scss']
 })
 export class ChartIntroComponent extends ChartComponent {
-
+  svgId = 'chart-intro';
 }

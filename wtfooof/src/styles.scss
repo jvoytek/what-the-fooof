@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-.mdl-grid {
-  max-width: 1024px
+.page-content > .mdl-grid {
+  max-width: 1024px;
 }
 
 .mdl-card__media {
@@ -11,4 +11,16 @@
 .fooof-chart svg {
   width: 100%;
   height: 444px;
+}
+
+@media (max-width: 839px) and (min-width: 480px) {
+  .fooof-chart svg {
+    height: 344px;
+  }
+}
+
+@media (max-width: 479px) {
+  .fooof-chart svg {
+    height: 275px;
+  }
 }

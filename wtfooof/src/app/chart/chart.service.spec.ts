@@ -13,7 +13,9 @@ describe('ChartService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('mapArraysAndRemoveOutOfRange should map the first array to prop: freq and second to prop: power', inject([ChartService], (service: ChartService) => {
+  it('mapArraysAndRemoveOutOfRange should map the first array to prop: freq and second to prop: power',
+      inject([ChartService],
+      (service: ChartService) => {
 
     const freq = [1, 2, 3, 4],
       power = [4, 3, 2, 1],
@@ -44,7 +46,7 @@ describe('ChartService', () => {
 
   it('getLinearScale should return a function that maps values to a range', inject([ChartService], (service: ChartService) => {
 
-    const scale = service.getLinearScale([0,100], [0,10]);
+    const scale = service.getLinearScale([0, 100], [0, 10]);
 
     expect(scale(20)).toEqual(2);
     expect(scale(-30)).toEqual(-3);
