@@ -110,14 +110,14 @@ export class ChartComponent implements OnInit, AfterContentInit {
         .attr("transform", "translate(0," + this.chartHeight + ")")
         .call(this.makeXGridlines(x_scale)
             .tickSize(-this.chartHeight)
-            .tickFormat(' ')
+            .tickFormat(function(){ return '';})
         )
 
     this.g.append("g")
         .attr("class", "grid")
         .call(this.makeYGridlines(y_scale)
             .tickSize(-this.chartWidth)
-            .tickFormat(' ')
+            .tickFormat(function(){ return '';})
         )
   }
 
