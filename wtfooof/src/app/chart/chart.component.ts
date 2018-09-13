@@ -57,7 +57,6 @@ export class ChartComponent implements OnInit, AfterContentInit {
 
   private selectSvg() {
     this.svg = d3.select('svg#' + this.svgId);
-    console.log(this.svg);
   }
 
   private getChartWidthAndHeight() {
@@ -105,30 +104,30 @@ export class ChartComponent implements OnInit, AfterContentInit {
   }
 
   private drawGridLines(x_scale: AxisScale<AxisDomain>, y_scale: AxisScale<AxisDomain>) {
-    this.g.append("g")
-        .attr("class", "grid")
-        .attr("transform", "translate(0," + this.chartHeight + ")")
+    this.g.append('g')
+        .attr('class', 'grid')
+        .attr('transform', 'translate(0,' + this.chartHeight + ')')
         .call(this.makeXGridlines(x_scale)
             .tickSize(-this.chartHeight)
-            .tickFormat(function(){ return '';})
-        )
+            .tickFormat(function() { return ''; })
+        );
 
-    this.g.append("g")
-        .attr("class", "grid")
+    this.g.append('g')
+        .attr('class', 'grid')
         .call(this.makeYGridlines(y_scale)
             .tickSize(-this.chartWidth)
-            .tickFormat(function(){ return '';})
-        )
+            .tickFormat(function() { return ''; })
+        );
   }
 
   private makeXGridlines(x_scale: AxisScale<AxisDomain>) {
       return d3.axisBottom(x_scale)
-          .ticks(8)
+          .ticks(8);
   }
 
   private makeYGridlines(y_scale: AxisScale<AxisDomain>) {
       return d3.axisLeft(y_scale)
-          .ticks(10)
+          .ticks(10);
   }
 
 }
