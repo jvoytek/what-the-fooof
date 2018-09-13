@@ -45,6 +45,7 @@ export class ChartComponent implements OnInit, AfterContentInit {
     this.drawYAxis(y_scale);
     this.drawXLabel(x_label);
     this.drawYLabel(y_label);
+    this.drawGridLines(x_scale, y_scale);
   }
 
   private getChartConstants() {
@@ -101,6 +102,33 @@ export class ChartComponent implements OnInit, AfterContentInit {
        .attr('text-anchor', 'middle')
        .style('font-size', this.fontSize + 'px')
        .text(y_label);
+  }
+
+  private drawGridLines(x_scale: AxisScale<AxisDomain>, y_scale: AxisScale<AxisDomain>) {
+    this.g.append("g")
+        .attr("class", "grid")
+        .attr("transform", "translate(0," + this.chartHeight + ")")
+        .call(this.makeXGridlines(x_scale)
+            .tickSize(-this.chartHeight)
+            .tickFormat(' ')
+        )
+
+    this.g.append("g")
+        .attr("class", "grid")
+        .call(this.makeYGridlines(y_scale)
+            .tickSize(-this.chartWidth)
+            .tickFormat(' ')
+        )
+  }
+
+  private makeXGridlines(x_scale: AxisScale<AxisDomain>) {
+      return d3.axisBottom(x_scale)
+          .ticks(8)
+  }
+
+  private makeYGridlines(y_scale: AxisScale<AxisDomain>) {
+      return d3.axisLeft(y_scale)
+          .ticks(10)
   }
 
 }

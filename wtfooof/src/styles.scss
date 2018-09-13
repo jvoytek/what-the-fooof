@@ -13,6 +13,12 @@
   height: 444px;
 }
 
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
 @media (max-width: 839px) and (min-width: 480px) {
   .fooof-chart svg {
     height: 344px;
