@@ -12,6 +12,7 @@ import { AfterViewInit } from '@angular/core';
 export class ChartAperiodicFitComponent extends ChartComponent implements AfterViewInit {
   svgId = 'chart-aperiodic-fit';
   freq_range: Array<number> = [2, 40];
+  fitLineSelection;
 
   ngAfterViewInit() {
 
@@ -57,12 +58,12 @@ export class ChartAperiodicFitComponent extends ChartComponent implements AfterV
             .attr('d', lineFunction);
   }
 
-  private animateInitialBackgroundFit(fit) {
+  private animateInitialBackgroundFit() {
     // Variable to Hold Total Length
-    const totalLength = fit.node().getTotalLength();
+    const totalLength = this.fitLineSelection.node().getTotalLength();
 
     // Set Properties of Dash Array and Dash Offset and initiate Transition
-    fit
+    this.fitLineSelection
       .attr('stroke-dasharray', totalLength + ' ' + totalLength)
       .attr('stroke-dashoffset', totalLength)
       .transition() // Call Transition Method
@@ -89,8 +90,8 @@ export class ChartAperiodicFitComponent extends ChartComponent implements AfterV
 
     this.plotOriginalSpectrum(originalSpectrumData, lineFunction);
 
-    const fitLineSelection = this.plotInitialBackgroundFit(initialBackgroundFitData, lineFunction);
-    this.animateInitialBackgroundFit(fitLineSelection);
+    this.fitLineSelection = this.plotInitialBackgroundFit(initialBackgroundFitData, lineFunction);
+    this.animateInitialBackgroundFit();
 
   }
 
