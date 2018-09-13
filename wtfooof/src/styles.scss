@@ -19,6 +19,11 @@
   shape-rendering: crispEdges;
 }
 
+.legendOrdinal {
+  font-size: 12px;
+  background-color: #FFF;
+}
+
 @media (max-width: 839px) and (min-width: 480px) {
   .fooof-chart svg {
     height: 344px;

@@ -8,6 +8,7 @@ import { ElementRef } from '@angular/core';
 import { AfterContentInit } from '@angular/core';
 import { AxisScale, AxisDomain } from 'd3';
 import { ChartService } from './chart.service';
+import { legendColor } from 'd3-svg-legend';
 
 @Component({
   selector: 'app-chart',
@@ -128,6 +129,25 @@ export class ChartComponent implements OnInit, AfterContentInit {
   private makeYGridlines(y_scale: AxisScale<AxisDomain>) {
       return d3.axisLeft(y_scale)
           .ticks(10);
+  }
+
+  public drawLineLegend(labels: Array<string>, colors: Array<string>) {
+    const ordinal = d3.scaleOrdinal()
+      .domain(labels)
+      .range(colors);
+
+    this.svg.append('g')
+      .attr('class', 'legendOrdinal')
+      .attr('transform', 'translate(' + (this.chartWidth - 70) + ', 40)');
+
+    const legendOrdinal = legendColor()
+      .shape('line')
+      .shapePadding(10)
+      .scale(ordinal);
+
+    this.svg.select('.legendOrdinal')
+      .call(legendOrdinal);
+
   }
 
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ChartComponent } from '../chart.component';
 import * as d3 from 'd3';
-import { json } from 'd3-fetch';
 import { AfterViewInit } from '@angular/core';
 
 @Component({
@@ -90,11 +89,11 @@ export class ChartAperiodicFitComponent extends ChartComponent implements AfterV
 
     this.plotOriginalSpectrum(originalSpectrumData, lineFunction);
 
+    this.drawLineLegend(['Original Spectrum', 'Aperiodic Fit'], ['black', 'red']);
+
     this.fitLineSelection = this.plotInitialBackgroundFit(initialBackgroundFitData, lineFunction);
     this.animateInitialBackgroundFit();
 
   }
-
-
 
 }
