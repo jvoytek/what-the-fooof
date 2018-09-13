@@ -9,6 +9,8 @@ import { CopyComponent } from './copy/copy.component';
 import { CopyIntroComponent } from './copy/copy-intro/copy-intro.component';
 import { ChartComponent } from './chart/chart.component';
 import { ChartIntroComponent } from './chart/chart-intro/chart-intro.component';
+import { ChartAperiodicFitComponent } from './chart/chart-aperiodic-fit/chart-aperiodic-fit.component';
+import { GlobalConstantsService } from './global-constants.service';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,13 @@ import { ChartIntroComponent } from './chart/chart-intro/chart-intro.component';
     CopyComponent,
     CopyIntroComponent,
     ChartComponent,
-    ChartIntroComponent
+    ChartIntroComponent,
+    ChartAperiodicFitComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ GlobalConstantsService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

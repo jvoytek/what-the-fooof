@@ -6,22 +6,24 @@ import { Output } from '@angular/core';
 })
 
 class ChartsGlobals {
-  strokeWidth: number
-  chartMargin: Object
+  strokeWidth: number;
+  chartMargin: Object;
+  fontSize: number;
 }
 
 export class GlobalConstantsService {
   // App
 
   // Charts
-  charts:ChartsGlobals = {
+  charts: ChartsGlobals = {
     strokeWidth: 1.5,
-    chartMargin: {top: 20, right: 20, bottom: 50, left: 70}
+    chartMargin: {top: 20, right: 20, bottom: 50, left: 70},
+    fontSize: 15
   };
 
   @Output()
   getChartsConstants(): ChartsGlobals {
-    return this.charts
+    return this.charts;
   }
 
 }

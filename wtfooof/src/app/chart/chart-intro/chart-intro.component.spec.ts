@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChartIntroComponent } from './chart-intro.component';
+import { GlobalConstantsService } from '../../global-constants.service';
 
 describe('ChartIntroComponent', () => {
   let component: ChartIntroComponent;
@@ -8,7 +9,8 @@ describe('ChartIntroComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChartIntroComponent ]
+      declarations: [ ChartIntroComponent ],
+      providers: [ GlobalConstantsService ]
     })
     .compileComponents();
   }));
